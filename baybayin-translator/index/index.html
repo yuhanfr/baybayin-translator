@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baybayin Translator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        textarea, button {
+            margin: 10px;
+            width: 80%;
+            max-width: 500px;
+            font-size: 18px;
+        }
+        #output {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Baybayin Translator</h2>
+    <textarea id="inputText" rows="4" placeholder="Enter text..."></textarea><br>
+    <button onclick="translateToBaybayin()">Translate</button>
+    <div id="output"></div>
+
+    <script>
+        const baybayinMap = {
+            "a": "ᜀ", "b": "ᜊ", "k": "ᜃ", "d": "ᜇ", "e": "ᜁ", 
+            "g": "ᜄ", "h": "ᜑ", "i": "ᜁ", "l": "ᜎ", "m": "ᜋ", 
+            "n": "ᜈ", "o": "ᜂ", "p": "ᜉ", "r": "ᜇ", "s": "ᜐ", 
+            "t": "ᜆ", "u": "ᜂ", "w": "ᜏ", "y": "ᜌ"
+        };
+
+        function translateToBaybayin() {
+            let inputText = document.getElementById("inputText").value.toLowerCase();
+            let outputText = "";
+
+            for (let char of inputText) {
+                outputText += baybayinMap[char] || char;
+            }
+
+            document.getElementById("output").innerText = outputText;
+        }
+    </script>
+</body>
+</html>
